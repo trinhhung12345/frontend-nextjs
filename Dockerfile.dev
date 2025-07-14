@@ -1,0 +1,23 @@
+# frontend-nextjs/Dockerfile.dev
+
+# Sử dụng image Node.js Alpine
+FROM node:20-alpine
+
+# Đặt thư mục làm việc
+WORKDIR /app
+
+# Copy package.json và package-lock.json để tận dụng cache của Docker
+# Chỉ cài lại dependencies khi các file này thay đổi
+COPY package*.json ./
+
+# Cài đặt dependencies
+RUN npm install
+
+# Copy toàn bộ mã nguồn còn lại
+COPY . .
+
+# Mở cổng 3000
+EXPOSE 3000
+
+# Lệnh để khởi chạy server development (sẽ có live-reload)
+CMD ["npm", "run", "dev"]
