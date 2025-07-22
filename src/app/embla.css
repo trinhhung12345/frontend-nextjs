@@ -1,0 +1,12 @@
+/* src/app/embla.css */
+.embla {
+    overflow: hidden;
+}
+.embla__container {
+    display: flex;
+}
+.embla__slide {
+    flex: 0 0 25%; /* Hiển thị 4 ảnh thumbnail cùng lúc */
+    min-width: 0;
+    padding-left: 0.5rem; /* Khoảng cách giữa các ảnh */
+}

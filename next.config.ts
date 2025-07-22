@@ -8,10 +8,15 @@ const nextConfig = {
   // ==========================================================
   // THÊM KHỐI CẤU HÌNH NÀY VÀO
   images: {
+    dangerouslyAllowSVG:true,
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'picsum.photos',
+      },
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
       },
       // LƯU Ý: Sau này khi bạn dùng Cloudinary, bạn sẽ thêm nó vào đây
       // {

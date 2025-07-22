@@ -2,6 +2,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google'; // Dùng font Inter cho hiện đại
 import './globals.css';
+import './embla.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
