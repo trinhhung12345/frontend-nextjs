@@ -16,13 +16,13 @@ const ProductCard = ({ variant, priority = false }: { variant: ProductCardProps,
 // --- KẾT THÚC THAY ĐỔI ---
     return (
         <div className="group relative">
-            <div className="relative aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80 transition-opacity">
+            <div className="relative w-full overflow-hidden rounded-md bg-gray-200 aspect-[4/5] group-hover:opacity-75 transition-opacity">
                 <Image
                     src={variant.image_url}
                     alt={variant.product_name}
                     fill
                     className="h-full w-full object-cover object-center lg:h-full lg:w-full transition-transform group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                     priority={priority}
                 />
                 {/* Logic này sẽ chỉ chạy nếu is_new là true */}

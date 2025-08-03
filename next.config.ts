@@ -18,6 +18,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'placehold.co',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
       // LƯU Ý: Sau này khi bạn dùng Cloudinary, bạn sẽ thêm nó vào đây
       // {
       //   protocol: 'https',

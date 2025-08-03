@@ -1,51 +1,52 @@
 // src/components/Header.tsx
 'use client';
-import Link from 'next/link';
-import { ShoppingBagIcon, UserIcon } from '@heroicons/react/24/outline';
 
-const navigation = [
-    { name: 'Trang Chủ', href: '/' },
-    { name: 'Sản Phẩm', href: '/products' },
-    { name: 'Về Chúng Tôi', href: '/about' },
-];
+import Link from 'next/link';
+import { ShoppingBagIcon } from '@heroicons/react/24/outline';
+import ProfileDropdown from './ProfileDropdown';
 
 export default function Header() {
     return (
-        <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-            <nav className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+        // Tăng z-index lên z-30 để đảm bảo header luôn ở trên cùng
+        <header className="bg-white sticky top-0 z-30 border-b border-gray-200 shadow-sm">
+            <nav className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
-                    {/* Logo (hoặc tên cửa hàng) */}
-                    <div className="flex-1 md:flex md:items-center md:gap-12">
-                        <Link href="/" className="block text-teal-600">
-                            <span className="sr-only">Trang Chủ</span>
-                            <span className="text-2xl font-bold">YourStore</span>
+                    <div className="flex items-center gap-8">
+                        {/* Logo */}
+                        <Link href="/" className="text-2xl font-bold text-gray-900">
+                            MyShop
                         </Link>
-                    </div>
 
-                    {/* Menu điều hướng */}
-                    <div className="hidden md:flex md:gap-8">
-                        {navigation.map((item) => (
-                            <Link
-                                key={item.name}
-                                href={item.href}
-                                className="text-gray-500 transition hover:text-gray-700"
-                            >
-                                {item.name}
+                        {/* Menu Links */}
+                        <div className="hidden md:flex md:items-center md:gap-8">
+                            <Link href="/products" className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">
+                                Sản phẩm
                             </Link>
-                        ))}
+                            <Link href="/about" className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">
+                                Về chúng tôi
+                            </Link>
+                            <Link href="/contact" className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">
+                                Liên hệ
+                            </Link>
+                        </div>
                     </div>
 
-                    {/* Các icon */}
-                    <div className="flex flex-1 items-center justify-end md:gap-6">
-                        <Link href="/account" className="text-gray-500 transition hover:text-gray-700">
-                            <UserIcon className="h-6 w-6" />
-                        </Link>
+                    {/* Icons */}
+                    <div className="flex items-center gap-4">
+                        {/* Profile Dropdown Component */}
+                        <ProfileDropdown />
+
                         <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
+
+                        {/* Cart Icon */}
                         <Link href="/cart" className="group -m-2 flex items-center p-2">
                             <ShoppingBagIcon
-                                className="h-6 w-6 flex-shrink-0 text-gray-500 group-hover:text-gray-700"
+                                className="h-6 w-6 flex-shrink-0 text-gray-500 group-hover:text-gray-700 transition-colors"
+                                aria-hidden="true"
                             />
-                            <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                            <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800 bg-gray-100 rounded-full px-2 py-0.5">
+                                0
+                            </span>
                         </Link>
                     </div>
                 </div>
